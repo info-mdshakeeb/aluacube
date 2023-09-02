@@ -9,11 +9,11 @@ export default function FilterInput({ onFilterChange }) {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row gap-2 items-center">
+    <div className="flex flex-col lg:flex-row gap-2 lg:items-center">
       <label htmlFor="postId">Filter by Post ID:</label>
       <input
         type="number"
-        className='border border-gray-400  rounded p-1'
+        className='border border-gray-400  rounded p-1 w-40 md:w-auto'
         id="postId"
         value={postId}
         onChange={handleChange}

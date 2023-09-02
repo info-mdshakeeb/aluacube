@@ -45,11 +45,11 @@ export default function page() {
   return (
     <div className="flex h-screen bg-gray-100 ">
       <div className="w-48 md:w-1/4  bg-gray-200 overflow-y-scroll relative scrollbar-none">
-        <div className="sticky top-0  bg-slate-200 p-4 border-b-2 border-gray-300">
+        <div className="sticky top-0  bg-slate-200 p-1 md:p-4 border-b-2 border-gray-300">
           <h2 className="text-xl font-bold mb-4">Posts</h2>
           <FilterInput onFilterChange={handleFilterChange} />
         </div>
-        <div className="p-4 ">
+        <div className="p-1 md:p-4 ">
           <PostsList
             comments={filteredComments}
             onPostClick={handlePostClick}
