@@ -1,20 +1,25 @@
+import React from 'react';
 
-export default function PostsList({ comments, selectedPostId, setSelectedPostId }) {
+export default function PostList({ comments, onPostClick, selectedPostId }) {
   return (
-    <div className="w-48 md:w-1/4 p-4 bg-gray-200 overflow-y-scroll">
-      <h2 className="text-xl font-bold mb-4">Posts</h2>
-      <ul>
-        {comments.map((comment) => (
-          <li
-            key={comment.postId}
-            onClick={() => setSelectedPostId(comment?.postId)}
-            className={`cursor-pointer hover:bg-gray-300 p-2 rounded ${selectedPostId === comment.postId ? 'bg-blue-200' : ''}`}
-          >
-            {comment.name}
-          </li>
-        ))}
+    <div className="">
+      <ul className='overflow-x-scroll rounder-sm  scrollbar-none'>
+        {comments.length === 0 ? (
+          <p className="text-gray-600">No comments to display. Please valid ID.</p>
+        ) : (
+          <ul>
+            {comments.map((comment) => (
+              <li
+                key={comment.id}
+                className={`cursor-pointer hover:bg-gray-300 p-2 rounded ${selectedPostId === comment.postId ? 'bg-blue-200' : ''}`}
+                onClick={() => onPostClick(comment.postId)}
+              >
+                {comment.name}
+              </li>
+            ))}
+          </ul>
+        )}
       </ul>
     </div>
   );
 }
-
